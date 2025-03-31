@@ -1,7 +1,8 @@
 # Arcane Scripts Landing Page
 
-A simple landing page for Blood on the Clocktower helper applications. This site
-provides tools for running and managing Blood on the Clocktower games:
+A simple landing page for [Blood on the Clocktower](https://bloodontheclocktower.com/)
+helper applications. This site provides tools for running and managing Blood on the
+Clocktower games:
 
 - [Tower Timer](https://timer.arcane-scripts.net) - Track day and night phases for
   your games
