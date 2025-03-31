@@ -165,3 +165,11 @@ h3 {
 p {
   opacity: 0.8;
 }
+
+.app-icon {
+  display: inline-block;
+  margin-right: 0.3rem;
+  font-size: 1.2em;
+  vertical-align: middle;
+  transform: translateY(-1px);
+}
