@@ -109,7 +109,8 @@ h1 {
   gap: 0.5rem;
 }
 
-.music-section {
+.music-section,
+.links-section {
   padding: 1rem;
   background-color: rgba(42, 42, 42, 0.5);
   border-radius: 15px;
@@ -117,14 +118,20 @@ h1 {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.playlist-links {
+.music-section {
+  margin-bottom: 1rem;
+}
+
+.playlist-links,
+.useful-links {
   display: flex;
   gap: 0.75rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.playlist-link {
+.playlist-link,
+.link-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -137,19 +144,30 @@ h1 {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.playlist-link:hover {
+.playlist-link:hover,
+.link-item:hover {
   transform: translateY(-2px);
   background-color: var(--accent-color);
   border-color: transparent;
 }
 
-.playlist-icon {
+.playlist-icon,
+.link-icon {
   font-size: 1.2rem;
 }
 
-.playlist-name {
+.playlist-name,
+.link-name {
   font-size: 1rem;
   font-weight: 500;
+}
+
+.app-icon {
+  display: inline-block;
+  margin-right: 0.3rem;
+  font-size: 1.2em;
+  vertical-align: middle;
+  transform: translateY(-1px);
 }
 
 h2 {
@@ -164,12 +182,4 @@ h3 {
 
 p {
   opacity: 0.8;
-}
-
-.app-icon {
-  display: inline-block;
-  margin-right: 0.3rem;
-  font-size: 1.2em;
-  vertical-align: middle;
-  transform: translateY(-1px);
 }
