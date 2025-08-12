@@ -102,6 +102,93 @@
           </a>
         </div>
       </div>
+      <div class="qr-section">
+        <button class="qr-button" onclick="openQROverlay()">
+          <span class="qr-icon">📱</span>
+          <span>Share this page</span>
+        </button>
+      </div>
     </div>
+
+    <!-- QR Code Overlay -->
+    <div id="qrOverlay" class="qr-overlay">
+      <div class="qr-content">
+        <div class="qr-header">
+          <h3>Share Arcane Scripts</h3>
+          <button class="close-button" onclick="closeQROverlay()">
+            &times;
+          </button>
+        </div>
+        <div class="qr-code-container">
+          <div id="qrcode"></div>
+          <p class="qr-text">
+            Scan to visit <strong>arcane-scripts.net</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+      // Wait for QRCode library to load
+      function waitForQRCode(callback) {
+        if (typeof QRCode !== 'undefined') {
+          callback();
+        } else {
+          setTimeout(() => waitForQRCode(callback), 100);
+        }
+      }
+
+      function openQROverlay() {
+        document.getElementById('qrOverlay').style.display = 'flex';
+        waitForQRCode(generateQRCode);
+      }
+
+      function closeQROverlay() {
+        document.getElementById('qrOverlay').style.display = 'none';
+      }
+
+      function generateQRCode() {
+        if (typeof QRCode === 'undefined') {
+          console.error('QRCode library not loaded');
+          document.getElementById('qrcode').innerHTML =
+            '<p style="color: red;">Error: QR Code library failed to load</p>';
+          return;
+        }
+
+        const qrContainer = document.getElementById('qrcode');
+        qrContainer.innerHTML = '';
+
+        console.log('Generating QR code for:', 'https://arcane-scripts.net');
+
+        try {
+          new QRCode(qrContainer, {
+            text: 'https://arcane-scripts.net',
+            width: 200,
+            height: 200,
+            colorDark: '#000000',
+            colorLight: '#FFFFFF',
+            correctLevel: QRCode.CorrectLevel.H,
+          });
+          console.log('QR Code generated successfully');
+        } catch (error) {
+          console.error('QR Code generation error:', error);
+          qrContainer.innerHTML =
+            '<p style="color: red;">Error generating QR code: ' +
+            error.message +
+            '</p>';
+        }
+      }
+
+      // Close overlay when clicking outside
+      document
+        .getElementById('qrOverlay')
+        .addEventListener('click', function (e) {
+          if (e.target === this) {
+            closeQROverlay();
+          }
+        });
+    </script>
   </body>
 </html>
